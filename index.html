@@ -209,25 +209,24 @@
     let payAmount = 500;
     let gameEnded = false;
 
+    // --- BUFFED TIERS FOR SPEED ---
     const tiers = [
-        const tiers = [
-    { name: "Amateur", threshold: 0, bonus: 0 },
-    { name: "Prospect", threshold: 50000, bonus: 0 },
-    { name: "Main Card", threshold: 125000, bonus: 0 },
-    { name: "Ranked", threshold: 250000, bonus: 500 },
-    { name: "Top Contender", threshold: 750000, bonus: 1500 },
-    { name: "Champion?", threshold: 1500000, bonus: 2500 },
-    { name: "The Feister Meister", threshold: 5000000, bonus: 10000 },
-    { name: "Radiant Feister", threshold: 25000000, bonus: 50000 },
-    { name: "Ascendant Feister", threshold: 100000000, bonus: 250000 },
-    { name: "True Feister Omega", threshold: 500000000, bonus: 1000000 },
-    { name: "Low Tier Rangoon God", threshold: 2500000000, bonus: 5000000 },
-    { name: "Astral Rangoon God", threshold: 10000000000, bonus: 25000000 },
-    { name: "Rangoon, the Creator", threshold: 100000000000, bonus: 500000000 },
-    { name: "Mingularity", threshold: 1000000000000, bonus: 10000000000 },
-    { name: "MOTHER OF ALL TUFF", threshold: 10000000000000, bonus: 250000000000 },
-    { name: "null", threshold: 50000000000000, bonus: 0 } 
-];
+      { name: "Amateur", threshold: 0, bonus: 0 },
+      { name: "Prospect", threshold: 50000, bonus: 0 },
+      { name: "Main Card", threshold: 125000, bonus: 0 },
+      { name: "Ranked", threshold: 250000, bonus: 500 },
+      { name: "Top Contender", threshold: 750000, bonus: 1500 },
+      { name: "Champion?", threshold: 1500000, bonus: 2500 },
+      { name: "The Feister Meister", threshold: 5000000, bonus: 10000 },
+      { name: "Radiant Feister", threshold: 25000000, bonus: 50000 },
+      { name: "Ascendant Feister", threshold: 100000000, bonus: 250000 },
+      { name: "True Feister Omega", threshold: 500000000, bonus: 1000000 },
+      { name: "Low Tier Rangoon God", threshold: 2500000000, bonus: 5000000 },
+      { name: "Astral Rangoon God", threshold: 10000000000, bonus: 25000000 },
+      { name: "Rangoon, the Creator", threshold: 100000000000, bonus: 500000000 },
+      { name: "Mingularity", threshold: 1000000000000, bonus: 10000000000 },
+      { name: "MOTHER OF ALL TUFF", threshold: 10000000000000, bonus: 250000000000 },
+      { name: "null", threshold: 50000000000000, bonus: 0 } 
     ];
 
     const fighterImg = document.getElementById("fighter");
@@ -282,49 +281,3 @@
             const earnedInRange = fighterPay - currentTier.threshold;
             const percent = Math.min((earnedInRange / range) * 100, 100);
             progressBar.style.width = percent + "%";
-            nextTierInfo.innerText = "Goal: $" + nextTier.threshold.toLocaleString();
-        } else {
-            progressBar.style.width = "100%";
-            progressBar.style.background = "#00ff00";
-            nextTierInfo.innerText = "VOID REACHED";
-        }
-    }
-
-    function showEnding() {
-        document.getElementById("game-content").style.display = "none";
-        document.getElementById("endingOverlay").style.display = "flex";
-    }
-
-    function showThanks() {
-        document.getElementById("endingOverlay").style.display = "none";
-        document.getElementById("thanksOverlay").style.display = "flex";
-    }
-
-    function resetGame() {
-        location.reload(); 
-    }
-
-    function updateMessages() {
-        if (fighterPay >= 5000 && fighterPay < 50000) {
-            message.innerText = "You're fighting for pennies. You need sustenance. You need... the 'goons.";
-        } else if (fighterPay >= 125000 && fighterPay < 250000) {
-            message.innerText = "Wana Dhite says you're TUFF. You celebrate with 400 Rangoon orders.";
-        } else if (fighterPay >= 750000 && fighterPay < 1500000) {
-            message.innerText = "You've eaten too many. Your DNA is changing. The blue and gold is manifest.";
-        } else if (fighterPay >= 2000000 && fighterPay < 5000000) {
-            message.innerText = "You can hear Brayton's voice in the wind. He says 'Click harder, Owen.'";
-        } else if (fighterPay >= 10000000 && fighterPay < 50000000) {
-            message.innerText = "Your strikes no longer draw blood. They draw Ming Hing sweet and sour sauce.";
-        } else if (fighterPay >= 500000000 && fighterPay < 1000000000) {
-            message.innerText = "Akron is shaking. The Rangoon God is awakening from his slumber.";
-        } else if (fighterPay >= 10000000000 && fighterPay < 50000000000) {
-            message.innerText = "You have transcended the octogon. You are now a being of pure Tuffness.";
-        } else if (fighterPay >= 1000000000000 && fighterPay < 5000000000000) {
-            message.innerText = "The Mingularity has begun. The vault is within reach. Do not stop.";
-        } else if (fighterPay >= 50000000000000) {
-            message.innerText = "MOTHER OF ALL TUFF ACHIEVED. Reality is pixelating...";
-        }
-    }
-  </script>
-</body>
-</html>
